@@ -1,0 +1,240 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px */
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-Italic.ttf);
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-ExtraBoldItalic.ttf);
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+  /* - Purple: hsl(259, 100%, 65%) */
+  --clr-primary-purple: #854dff;
+  /* - Light red: hsl(0, 100%, 67%) */
+  --clr-primary-light-red: hsl(0, 100%, 67%);
+
+  /* ### Neutral */
+  /* - White: hsl(0, 0%, 100%) */
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  /* - Off white: hsl(0, 0%, 94%) */
+  --clr-neutral-off-white: hsl(0, 0%, 94%);
+  /* - Light grey: hsl(0, 0%, 86%) */
+  --clr-neutral-light-grey: hsl(0, 0%, 86%);
+  /* - Smokey grey: hsl(0, 1%, 44%) */
+  --clr-neutral-smokey-grey: hsl(0, 1%, 44%);
+  /* - Off black: hsl(0, 0%, 8%) */
+  --clr-neutral-off-black: hsl(0, 0%, 8%);
+
+  /* ## Typography
+
+### Body Copy
+
+- Font size (inputs): 32px
+
+### Font
+
+- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Weights: 400i, 700, 800i */
+
+  /* - Font size (paragraph): 18px */
+  --fs-base: 32px;
+  /* Font family */
+  --ff-app: "Poppins", sans-serif;
+
+  /* Font weights */
+  --fw-400: 400;
+  --fw-700: 400;
+  --fw-800: 400;
+
+  /* Font styles */
+  --fst-400: italic;
+  --fst-700: normal;
+  --fst-800: italic;
+}
+
+body {
+  font-size: var(--fs-base);
+  font-family: var(--ff-app);
+  /* background-color: white; */
+  display: grid;
+  place-items: center;
+  background: var(--light-grey, #f0f0f0);
+}
+
+.container {
+  display: flex;
+  width: 1440px;
+  height: 960px;
+  padding: 171px 300px 138px 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  width: 840px;
+  height: 651px;
+  padding: 56px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 24px 24px 200px 24px;
+  background: var(--white, #fff);
+}
+
+.card__date {
+  display: flex;
+  gap: 32px;
+}
+
+.date__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.date__legend {
+  color: var(--clr-neutral-smokey-grey, #716f6f);
+
+  /* Heading S */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+}
+
+.date__input {
+  outline: none;
+  width: 160px;
+  color: var(--clr-neutral-off-black, #151515);
+
+  /* Heading M */
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.32px;
+  padding: 12px 24px;
+
+  border-radius: 8px;
+  border: 1px solid var(--clr-neutral-light-grey);
+}
+
+.date__input:focus {
+  border: 1px solid var(--clr-primary-purple, #854dff);
+  caret-color: var(--clr-primary-purple);
+}
+
+.date__input::-webkit-outer-spin-button,
+.date__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.date__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.invalid__date > .date__legend,
+.invalid__date > .date__error {
+  visibility: visible;
+  color: var(--red, #ff5959);
+}
+
+.invalid__date > .date__input {
+  border-color: var(--clr-primary-light-red);
+  caret-color: var(--clr-primary-light-red);
+}
+
+.date__error {
+  visibility: hidden;
+  color: var(--red, #ff5959);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.card__separator {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.separator__rule {
+  width: 100%;
+  height: 1px;
+  border: none;
+  color: var(--clr-neutral-light-grey);
+  background: var(--clr-neutral-light-grey);
+}
+
+.separator__button {
+  display: grid;
+  place-items: center;
+  border: none;
+  width: 96px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--purple, #854dff);
+  cursor: pointer;
+}
+
+.separator__button:hover {
+  background: var(--clr-neutral-off-black);
+}
+
+.elapsed__time {
+  color: var(--purple, #854dff);
+
+  /* Heading L */
+  font-size: 104px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%;
+  letter-spacing: -2.08px;
+}
+
+.elapsed__legend {
+  color: var(--clr-neutral-off-black, #151515);
+  font-size: 104px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%;
+  letter-spacing: -2.08px;
+}
+.attribution {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}

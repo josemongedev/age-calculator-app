@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+  <main class="container">
+    <form class="card">
+
+      <div class="card__date">
+        <fieldset class="date__fieldset fieldset__day">
+          <span class="date__legend">Day</span>
+          <input class="date__input date__day" type="number" placeholder="DD" required />
+          <span class="date__error">Must be a valid day</span>
+        </fieldset>
+
+        <fieldset class="date__fieldset fieldset__month">
+          <span class="date__legend">Month</span>
+          <input class="date__input date__month" type="number" placeholder="MM" required />
+          <span class="date__error">Must be a valid month</span>
+        </fieldset>
+
+        <fieldset class="date__fieldset fieldset__year">
+          <span class="date__legend">Year</span>
+          <input class="date__input date__year" type="number" placeholder="YYYY" required />
+          <span class="date__error">Must be in the past</span>
+        </fieldset>
+      </div>
+
+      <div class="card__separator">
+        <hr class="separator__rule" /><button class="separator__button">
+          <img src="./images/icon-arrow.svg" alt="Calculate age" />
+        </button>
+      </div>
+
+      <div class="card__elapsed">
+        <div>
+          <span class="elapsed__time elapsed__years">--</span>&nbsp;
+          <span class="elapsed__legend">years</span>
+        </div>
+        <div>
+          <span class="elapsed__time elapsed__months">--</span>&nbsp;
+          <span class="elapsed__legend">months</span>
+        </div>
+        <div>
+          <span class="elapsed__time elapsed__days">--</span>&nbsp;
+          <span class="elapsed__legend">days</span>
+        </div>
+      </div>
+
+    </form>
+  </main>
+
+  <footer class="attribution">
+    <span>
+      Challenge by <a class="attribution__challenge" href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank">Frontend Mentor</a>.
+    </span>
+    <span>
+      Coded by <a class="attribution__developer" href="https://josemonge.dev">Jose Monge</a>.
+    </span>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
