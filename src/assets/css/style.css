@@ -99,7 +99,7 @@ body {
 @media (min-width: 1440px) {
   .container {
     width: 1440px;
-    height: 960px;
+    /* height: 960px; */
     padding: 171px 300px 109px 300px;
     display: flex;
     justify-content: center;
