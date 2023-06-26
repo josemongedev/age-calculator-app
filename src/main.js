@@ -14,14 +14,15 @@ window.onload = function () {
   const fieldsets = document.querySelectorAll(".date__fieldset");
 
   // Handlers
-  const isInsideTimeInterval = (element, value, lower, upper) => {
-    if (value >= lower && value <= upper) {
+  const isInsideTimeInterval = (element, lower, upper) => {
+    const value = element.value;
+    const isInside = value >= lower && value <= upper;
+    if (isInside) {
       element.parentElement.classList.remove("invalid__date");
-      return true;
     } else {
       element.parentElement.classList.add("invalid__date");
-      return false;
     }
+    return isInside;
   };
 
   function dateIsValid(date) {
@@ -46,22 +47,22 @@ window.onload = function () {
   // Event Listeners
   calculateButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const validDay = isInsideTimeInterval(day, day.value, 1, 12);
-    const validMonth = isInsideTimeInterval(month, month.value, 1, 31);
-    const validYear = isInsideTimeInterval(
-      year,
-      year.value,
-      1900,
-      new Date().getFullYear()
-    );
+    // Initial check for valid input, also style independently
+    const currentYear = new Date().getFullYear();
+    const validDay = isInsideTimeInterval(day, 1, 31);
+    const validMonth = isInsideTimeInterval(month, 1, 12);
+    const validYear = isInsideTimeInterval(year, 1900, currentYear);
+
     if (!validDay || !validMonth || !validYear) return;
 
+    // Verify date actually exisits (leap years, correct day for specific month,etc)
     const candidateDate = new Date(year.value, month.value, day.value);
     if (!dateIsValid(candidateDate)) {
       fieldsets.forEach((fs) => fs.classList.add("invalid__date"));
       return;
     }
 
+    // Remove error styling and show results
     fieldsets.forEach((fs) => fs.classList.remove("invalid__date"));
     const age = calculateAge(candidateDate);
     elapsedDays.innerHTML = age.days;
