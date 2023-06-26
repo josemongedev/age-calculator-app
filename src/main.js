@@ -46,8 +46,8 @@ window.onload = function () {
   // Event Listeners
   calculateButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const validDay = isInsideTimeInterval(day, day.value, 1, 12);
-    const validMonth = isInsideTimeInterval(month, month.value, 1, 31);
+    const validDay = isInsideTimeInterval(day, day.value, 1, 31);
+    const validMonth = isInsideTimeInterval(month, month.value, 1, 12);
     const validYear = isInsideTimeInterval(
       year,
       year.value,
